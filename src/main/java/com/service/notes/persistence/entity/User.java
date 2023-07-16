@@ -3,7 +3,6 @@ package com.service.notes.persistence.entity;
 import com.service.notes.model.Role;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -20,7 +19,7 @@ import java.util.stream.Collectors;
 public class User implements UserDetails {
 
     @Id
-    private ObjectId id;
+    private String id;
     @Indexed(unique = true)
     private String username;
     private String password;
