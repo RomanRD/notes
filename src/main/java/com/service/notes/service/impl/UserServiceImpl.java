@@ -8,10 +8,13 @@ import com.service.notes.persistence.repository.UserRepository;
 import com.service.notes.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import util.Utility;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,6 +29,8 @@ public class UserServiceImpl implements UserService {
     private final ModelMapper mapper;
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
+
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -53,6 +58,9 @@ public class UserServiceImpl implements UserService {
         userDTO.setPassword(passwordEncoder.encode(userDTO.getPassword()));
 
         final User save = userRepository.save(mapper.map(userDTO, User.class));
+
+        logger.info("User " + save.getUsername() + " create by " + Utility.getCurrentUsername());
+
         return mapper.map(save, UserDTO.class);
     }
 
@@ -68,6 +76,7 @@ public class UserServiceImpl implements UserService {
 
         final User user = mapper.map(userById, User.class);
         userRepository.save(user);
+        logger.info("User " + userDTO.getUsername() + " edited by " + Utility.getCurrentUsername());
     }
 
     private void updatePresentUserFields(UserDTO user, UserDTO updateData) {
@@ -84,6 +93,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void delete(String id) {
         userRepository.deleteById(id);
+        logger.info("User " + id + " deleted by " + Utility.getCurrentUsername());
     }
 
 }
