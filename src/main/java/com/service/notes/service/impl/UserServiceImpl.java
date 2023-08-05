@@ -5,6 +5,7 @@ import com.service.notes.domain.exception.UsernameAlreadyExists;
 import com.service.notes.domain.exception.UsernameModificationNotAllowedException;
 import com.service.notes.persistence.entity.User;
 import com.service.notes.persistence.repository.UserRepository;
+import com.service.notes.service.NoteService;
 import com.service.notes.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -29,6 +30,7 @@ public class UserServiceImpl implements UserService {
     private final ModelMapper mapper;
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
+    private final NoteService noteService;
 
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
@@ -94,6 +96,8 @@ public class UserServiceImpl implements UserService {
     public void delete(String id) {
         userRepository.deleteById(id);
         logger.info("User " + id + " deleted by " + Utility.getCurrentUsername());
+
+        noteService.deleteByAuthor(id);
     }
 
 }
