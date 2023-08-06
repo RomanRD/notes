@@ -1,4 +1,4 @@
-package util;
+package com.service.notes.util;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
