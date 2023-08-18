@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+
+  notes-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: notes-app
+    container_name: notes-app-container
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://admin:admin@mongodb:27017/notes?authSource=admin
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:5
+    container_name: mongodb-container
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: notes
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
