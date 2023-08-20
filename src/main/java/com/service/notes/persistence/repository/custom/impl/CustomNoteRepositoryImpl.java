@@ -10,6 +10,8 @@ import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -80,6 +82,7 @@ public class CustomNoteRepositoryImpl implements CustomNoteRepository {
     }
 
     @Override
+    @Transactional(propagation = Propagation.MANDATORY)
     public void deleteNotesAndLikesByAuthorId(String authorId) {
         Update updateDeleteLikes = new Update().pull("likes", authorId);
         mongoOperations.updateMulti(new Query(), updateDeleteLikes, Note.class);
