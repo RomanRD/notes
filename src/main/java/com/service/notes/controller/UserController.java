@@ -32,7 +32,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     @Secured("ROLE_ADMIN")
-    public UserDTO get(@PathVariable(required = false) String id, HttpServletResponse response){
+    public UserDTO get(@PathVariable String id, HttpServletResponse response){
         final UserDTO user = userService.getById(id);
 
         if(user == null)
