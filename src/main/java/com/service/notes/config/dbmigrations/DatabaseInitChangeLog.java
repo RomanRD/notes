@@ -3,7 +3,7 @@ package com.service.notes.config.dbmigrations;
 import com.github.cloudyrock.mongock.ChangeLog;
 import com.github.cloudyrock.mongock.ChangeSet;
 import com.service.notes.model.Role;
-import com.service.notes.persistence.entity.User;
+import com.service.notes.persistence.document.User;
 import com.service.notes.persistence.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 

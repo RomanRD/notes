@@ -3,7 +3,7 @@ package com.service.notes.persistence.repository.custom.impl;
 import com.service.notes.domain.dto.NoteFormDTO;
 import com.service.notes.domain.dto.NoteQueryDTO;
 import com.service.notes.domain.dto.NoteWithLikeDataDTO;
-import com.service.notes.persistence.entity.Note;
+import com.service.notes.persistence.document.Note;
 import com.service.notes.persistence.repository.custom.CustomNoteRepository;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.aggregation.*;

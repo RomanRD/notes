@@ -4,7 +4,7 @@ import com.service.notes.domain.dto.NoteQueryDTO;
 import com.service.notes.domain.dto.NoteFormDTO;
 import com.service.notes.domain.dto.NoteWithLikeDataDTO;
 import com.service.notes.model.Role;
-import com.service.notes.persistence.entity.User;
+import com.service.notes.persistence.document.User;
 import com.service.notes.service.NoteService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

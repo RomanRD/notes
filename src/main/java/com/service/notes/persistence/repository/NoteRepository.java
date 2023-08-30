@@ -1,6 +1,6 @@
 package com.service.notes.persistence.repository;
 
-import com.service.notes.persistence.entity.Note;
+import com.service.notes.persistence.document.Note;
 import com.service.notes.persistence.repository.custom.CustomNoteRepository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

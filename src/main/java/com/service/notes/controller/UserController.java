@@ -4,7 +4,7 @@ import com.service.notes.domain.dto.UserDTO;
 import com.service.notes.domain.exception.UsernameAlreadyExists;
 import com.service.notes.domain.exception.UsernameModificationNotAllowedException;
 import com.service.notes.model.Role;
-import com.service.notes.persistence.entity.User;
+import com.service.notes.persistence.document.User;
 import com.service.notes.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;

@@ -3,7 +3,7 @@ package com.service.notes.service.impl;
 import com.service.notes.domain.dto.UserDTO;
 import com.service.notes.domain.exception.UsernameAlreadyExists;
 import com.service.notes.domain.exception.UsernameModificationNotAllowedException;
-import com.service.notes.persistence.entity.User;
+import com.service.notes.persistence.document.User;
 import com.service.notes.persistence.repository.UserRepository;
 import com.service.notes.service.NoteService;
 import com.service.notes.service.UserService;

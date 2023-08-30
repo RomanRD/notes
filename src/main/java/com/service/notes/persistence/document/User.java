@@ -1,4 +1,4 @@
-package com.service.notes.persistence.entity;
+package com.service.notes.persistence.document;
 
 import com.service.notes.model.Role;
 import lombok.Data;

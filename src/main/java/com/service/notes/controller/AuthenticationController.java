@@ -1,7 +1,7 @@
 package com.service.notes.controller;
 
 import com.service.notes.domain.dto.AuthenticationRequestDTO;
-import com.service.notes.persistence.entity.User;
+import com.service.notes.persistence.document.User;
 import com.service.notes.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

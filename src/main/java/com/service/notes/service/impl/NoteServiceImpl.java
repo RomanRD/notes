@@ -3,7 +3,7 @@ package com.service.notes.service.impl;
 import com.service.notes.domain.dto.NoteFormDTO;
 import com.service.notes.domain.dto.NoteQueryDTO;
 import com.service.notes.domain.dto.NoteWithLikeDataDTO;
-import com.service.notes.persistence.entity.Note;
+import com.service.notes.persistence.document.Note;
 import com.service.notes.persistence.repository.NoteRepository;
 import com.service.notes.service.NoteService;
 import lombok.RequiredArgsConstructor;
